@@ -1,0 +1,109 @@
+
+<Style>:
+    video:vd 
+    music_image:mc 
+    photo:ph 
+    time_music:pb 
+    
+    MDScreenManager:
+        id:mn 
+# //////////MAIN///////////////
+        MDScreen:
+            name:'main'
+            MDScreen:
+                MDBottomNavigation:
+                    MDBottomNavigationItem:
+                        name: 'video'
+                        text: 'Video'
+                        icon: 'video'
+                        MDScreen:
+                            MDAnchorLayout:
+                                anchor_x:'center'
+                                anchor_y:'top'
+                                OneLineAvatarIconListItem:
+                                    text: "Search Video"
+                                    on_press:root.show_filemanager()
+                                    IconLeftWidget:
+                                        icon:'video'
+                                        on_press:root.show_filemanager()
+                                    IconRightWidget:
+                                        icon:'card-search-outline'
+                                        on_press:root.show_filemanager()
+                                MDNavigationDrawerDivider:
+                                MDAnchorLayout:
+                                    anchor_x:'center'
+                                    anchor_y:'center'
+                                    VideoPlayer:
+                                        id:vd 
+                                        source:''
+                                        size_hint: 0.97, 0.76
+                    MDBottomNavigationItem:
+                        name: 'music'
+                        text: 'Music'
+                        icon: 'music'
+                        MDScreen:
+                            MDAnchorLayout:
+                                anchor_x:'center'
+                                anchor_y:'top'
+                                OneLineAvatarIconListItem:
+                                    text: "Search Music"
+                                    on_press:root.show_filemanager()
+                                    IconLeftWidget:
+                                        icon:'music'
+                                        on_press:root.show_filemanager()
+                                    IconRightWidget:
+                                        icon:'card-search-outline'
+                                        on_press:root.show_filemanager()
+                                MDNavigationDrawerDivider:
+                                MDAnchorLayout:
+                                    anchor_x:'center'
+                                    anchor_y:'center'
+                                    MDScreen:
+                                        FitImage:
+                                            id:mc 
+                                            source: "music.jpg"
+                                            size_hint:1,0.885
+                                    MDScreen:
+                                        MDFillRoundFlatButton:
+                                            text:'Play'
+                                            pos_hint: {'center_x': 0.55,'center_y': 0.1}
+                                            on_press:root._play()
+                                        MDFillRoundFlatButton:
+                                            text:'Pause'
+                                            pos_hint: {'center_x': 0.45,'center_y': 0.1}
+                                            on_press:root._pause() 
+                                    MDScreen:
+                                        ProgressBar:
+                                            id:pb
+                                            min:0
+                                            max:512
+                                            value:0
+                    MDBottomNavigationItem:
+                        name:'photo' 
+                        text:'photo'
+                        icon:'image' 
+                        MDScreen:
+                            MDAnchorLayout:
+                                anchor_x:'center'
+                                anchor_y:'top'
+                                OneLineAvatarIconListItem:
+                                    text: "Search Photo"
+                                    on_press:root.show_filemanager() 
+                                    IconLeftWidget:
+                                        icon:'image'
+                                        on_press:root.show_filemanager() 
+                                    IconRightWidget:
+                                        icon:'card-search-outline'
+                                        on_press:root.show_filemanager() 
+                                MDNavigationDrawerDivider: 
+                                MDAnchorLayout:
+                                    anchor_x:'center'
+                                    anchor_y:'center'
+                                    Image:
+                                        id:ph 
+                                        source:''
+                                        size_hint: 0.97, 0.76      
+# //////////FAKE///////////////
+        MDScreen:
+            name:'fake'
+

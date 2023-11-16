@@ -15,7 +15,6 @@ class Style(MDAnchorLayout):
     music_image=ObjectProperty()
     photo=ObjectProperty()
     time_music=ObjectProperty()
-    t=True  
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -61,6 +60,7 @@ class Style(MDAnchorLayout):
         try:
             self.music.stop()
             Clock.unschedule(self.chage_time_music)
+            self.time_music.value=0
         except:pass 
 
     def chage_time_music(self,*args):

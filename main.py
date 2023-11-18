@@ -43,9 +43,11 @@ class Style(MDAnchorLayout):
             if a[-3::]=='mp4':
                 self.video.source=a 
                 self.f.close()
+                self.video.state='play'
             elif a[-3::]=='mp3':
                 self.music=SoundLoader.load(a)
                 self.f.close()
+                self._play()
             elif a[-3::]=='jpg':
                 self.photo.source=a
                 self.f.close()
